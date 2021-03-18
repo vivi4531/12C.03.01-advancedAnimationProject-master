@@ -23,6 +23,11 @@ async function init() {
   let mySvgData = await response.text();
   document.querySelector("#iphone-basic").innerHTML = mySvgData;
 
+  //fetch phonegriphalo
+  /*   let response1 = await fetch("images/iphone_phonegrip_halo.svg");
+  let mySvgData1 = await response1.text();
+  document.querySelector("#phonegripHaloSvg").innerHTML = mySvgData1; */
+
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
   startColorManipulation();
 }
@@ -70,28 +75,28 @@ function toggleOption(event) {
     if (feature === "phonegripButterfly" && (features.phonegripHeart === true || features.phonegripHalo === true)) {
       document.querySelector(`[data-feature="phonegripHeart"]`).classList.add("hide");
       document.querySelector(`[data-feature="phonegripHalo"]`).classList.add("hide");
-      //document.querySelector("phonegripHalo").classList.remove("chosen");
-      //features.phonegripHalo = false;
+      document.querySelector("#phonegripHalo").classList.remove("chosen");
+      features.phonegripHalo = false;
       document.querySelector("#phonegripHeart").classList.remove("chosen");
       features.phonegripHeart = false;
-      alert("You can only add one phonegrip at the time 1");
+      alert("You can only add one phonegrip at the time");
     } else if (feature === "phonegripHeart" && (features.phonegripButterfly === true || features.phonegripHalo === true)) {
       document.querySelector(`[data-feature="phonegripButterfly"]`).classList.add("hide");
       document.querySelector(`[data-feature="phonegripHalo"]`).classList.add("hide");
-      //document.querySelector("phonegripHalo").classList.remove("chosen");
-      //features.phonegripHalo = false;
+      document.querySelector("#phonegripHalo").classList.remove("chosen");
+      features.phonegripHalo = false;
       document.querySelector("#phonegripButterfly").classList.remove("chosen");
       features.phonegripButterfly = false;
-      alert("You can only add one phonegrip at the time 2");
-    } /* else if (feature === "phonegripHalo" && (features.phonegripButterfly === true || features.phonegripHeart)) {
-        document.querySelector(`[data-feature="phonegripButterfly"]`).classList.add("hide");
+      alert("You can only add one phonegrip at the time");
+    } else if (feature === "phonegripHalo" && (features.phonegripButterfly === true || features.phonegripHeart)) {
+      document.querySelector(`[data-feature="phonegripButterfly"]`).classList.add("hide");
       document.querySelector(`[data-feature="phonegripHeart"]`).classList.add("hide");
-      document.querySelector("phonegripHeart").classList.remove("chosen");
+      document.querySelector("#phonegripHeart").classList.remove("chosen");
       features.phonegripHeart = false;
       document.querySelector("#phonegripButterfly").classList.remove("chosen");
       features.phonegripButterfly = false;
-      alert("You can only add one phonegrip at the time"); 
-    } */
+      alert("You can only add one phonegrip at the time");
+    }
     console.log(target);
 
     //Select target and add chosen class
