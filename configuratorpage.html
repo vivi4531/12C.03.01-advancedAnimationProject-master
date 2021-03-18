@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12C.03.01-advancedAnimationProject</title>
+    <!-- Link to Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <a href=""><h1>Pimp Your iPhone</h1></a>
+      <nav>
+        <a href="index.html">Frontpage</a>
+        <a href="configuratorpage.html">Configuratorpage</a>
+        <a href="scrollpage.html">Scrollpage</a>
+      </nav>
+    </header>
+
+    <h2>Your personal phone configurator</h2>
+
+    <!-- Configurator -->
+    <div id="configurator">
+      <!-- Color selector -->
+      <div id="color-box">
+        <h3>Available colors</h3>
+        <!-- <div id="color_btns"> -->
+        <svg id="color_btns" viewBox="0 0 1100 4000">
+          <rect class="color_btn" x="350" y="0" width="400" height="400" fill="#f2d49b" />
+          <rect class="color_btn" x="350" y="500" width="400" height="400" fill="#f26671" />
+          <rect class="color_btn" x="350" y="1000" width="400" height="400" fill="#ffafce" />
+          <rect class="color_btn" x="350" y="1500" width="400" height="400" fill="#f2059f" />
+          <rect class="color_btn" x="350" y="2000" width="400" height="400" fill="#dca0e6" />
+          <rect class="color_btn" x="350" y="2500" width="400" height="400" fill="#8f84d9" />
+          <rect class="color_btn" x="350" y="3000" width="400" height="400" fill="#afe3ff" />
+          <rect class="color_btn" x="350" y="3500" width="400" height="400" fill="#a7d9aa" />
+        </svg>
+        <!-- </div> -->
+      </div>
+
+      <!-- Product preview-->
+      <div id="product-preview">
+        <div id="iphone-basic"></div>
+        <!-- Stickers preview -->
+        <img class="hide" src="images/iphone_sticker_dramaqueen.png" alt="" data-feature="stickerDramaqueen" />
+        <img class="hide" src="images/iphone_sticker_heart.png" alt="" data-feature="stickerHeart" />
+        <img class="hide" src="images/iphone_sticker_rainbow.png" alt="" data-feature="stickerRainbow" />
+
+        <!-- Phonegrip preview -->
+        <img class="hide" src="images/iphone_phonegrip_butterfly.png" alt="" data-feature="phonegripButterfly" />
+        <img class="hide" src="images/iphone_phonegrip_heart.png" alt="" data-feature="phonegripHeart" />
+        <img class="hide" src="images/iphone_phonegrip_halo.png" alt="" data-feature="phonegripHalo" />
+      </div>
+
+      <!-- Feature list - items that can be added to iPhone -->
+
+      <div id="options">
+        <h3>Available features</h3>
+        <!-- Stickers -->
+        <h4>Stickers</h4>
+        <figure class="option" data-feature="stickerDramaqueen">
+          <img src="images/feature_sticker_dramaqueen.png" alt="dramaqueen" />
+          <figcaption>Dramaqueen</figcaption>
+        </figure>
+        <figure class="option" data-feature="stickerHeart">
+          <img src="images/feature_sticker_heart.png" alt="dramaheartqueen" />
+          <figcaption>Heart</figcaption>
+        </figure>
+        <figure class="option" data-feature="stickerRainbow">
+          <img src="images/feature_sticker_rainbow.png" alt="rainbow" />
+          <figcaption>Rainbow</figcaption>
+        </figure>
+
+        <!-- Phonegrips -->
+        <h4>Phonegrips</h4>
+        <figure id="phonegripButterfly" class="option" data-feature="phonegripButterfly">
+          <img src="images/feature_phonegrip_butterfly.png" alt="phonegripbutterfly" />
+          <figcaption>Butterfly</figcaption>
+        </figure>
+        <figure id="phonegripHeart" class="option" data-feature="phonegripHeart">
+          <img src="images/feature_phonegrip_heart.png" alt="phonegripheart" />
+          <figcaption>Heart</figcaption>
+        </figure>
+        <!-- <figure id="phonegripHalo" class="option" data-feature="phonegripHalo">
+                    <img src="images/feature_phonegrip_halo.png" alt="phonegriphalo">
+                    <figcaption>Halo</figcaption>
+                </figure> -->
+      </div>
+    </div>
+
+    <footer><p>© Amalie Grøn & Vivi Mortensen 2021</p></footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

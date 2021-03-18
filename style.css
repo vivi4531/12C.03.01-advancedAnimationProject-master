@@ -1,0 +1,240 @@
+/* RESET */
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+/* SVG */
+
+#shadow_Image,
+#shadow_Image-2 {
+  pointer-events: none;
+}
+
+.g_to_interact_with {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+path {
+  stroke-width: 20;
+}
+
+/* FONT */
+
+@font-face {
+  font-family: "cloister_blacklight";
+  src: url("font/cloisterblacklight-axjg-webfont.woff2") format("woff2"), url("font/cloisterblacklight-axjg-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "cloister_blacklight";
+  font-size: 5em;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#configurator h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#configurator figcaption {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#configurator h4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+/* CONFIGURATOR */
+#configurator {
+  display: flex;
+  margin: 50px;
+}
+
+#color-box,
+#options {
+  flex-grow: 1;
+  flex-basis: 300px;
+  box-shadow: 3px 3px 8px #ffafce;
+  border-radius: 1em;
+}
+
+#iphone-basic {
+  width: 100%;
+}
+
+#product-preview {
+  flex-grow: 2;
+  flex-basis: 1000px;
+  box-shadow: 3px 3px 8px #ffafce;
+  border-radius: 1em;
+  margin: 0 50px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  position: relative;
+  pointer-events: none;
+}
+
+#product-preview img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+}
+
+#product-preview svg {
+  pointer-events: none;
+}
+
+#product-preview g {
+  pointer-events: all;
+}
+
+.option {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.option:hover {
+  opacity: 100%;
+}
+
+.chosen {
+  opacity: 100%;
+}
+
+.color_btn {
+  cursor: pointer;
+}
+
+/* HEADER + NAVIGATION */
+header {
+  background-color: #afe3ff;
+  margin-bottom: 30px;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  text-align: center;
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+nav a:hover {
+  font-size: 2.2em;
+  font-weight: 700;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 10px;
+}
+
+/* FRONTPAGE TEST */
+#cooltext {
+  font-family: "cloister_blacklight";
+  color: #ffafce;
+  font-size: 8em;
+  text-shadow: 5px 5px 5px black;
+  margin-bottom: 20px;
+}
+
+span {
+  display: inline-block;
+}
+
+.textwave {
+  --delay: 0s;
+  animation: textwave 1.5s;
+  /*   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); */
+  animation-timing-function: cubic-bezier(0.17, 0.67, 0.85, 1.26);
+  animation-delay: calc(var(--delay) * 0.1s);
+  animation-fill-mode: both;
+}
+
+@keyframes textwave {
+  0% {
+    transform: translateY(150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.showText {
+  animation: showText 7s;
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
+@keyframes showText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
