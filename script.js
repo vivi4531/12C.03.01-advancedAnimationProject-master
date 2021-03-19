@@ -8,6 +8,9 @@ const features = {
   phonegripButterfly: false,
   phonegripHeart: false,
   phonegripHalo: false,
+  coverPowerpuff: false,
+  coverCandyHaerts: false,
+  coverBabygirl: false,
 };
 
 //Global variable
@@ -24,9 +27,24 @@ async function init() {
   document.querySelector("#iphone-basic").innerHTML = mySvgData;
 
   //fetch phonegriphalo
-  /*   let response1 = await fetch("images/iphone_phonegrip_halo.svg");
+  /*   let response1 = await fetch("iphone_configurator_test-01.svg");
   let mySvgData1 = await response1.text();
   document.querySelector("#phonegripHaloSvg").innerHTML = mySvgData1; */
+
+  //fetch powerpuff
+  let response1 = await fetch("test/iphone_cover_powerpuff-01.svg");
+  let mySvgData1 = await response1.text();
+  document.querySelector("#coverPowerpuffSvg").innerHTML = mySvgData1;
+
+  //fetch babygirl
+  let response2 = await fetch("images/iphone_cover_babygirl.svg");
+  let mySvgData2 = await response2.text();
+  document.querySelector("#coverBabygirlSvg").innerHTML = mySvgData2;
+
+  //fetch candyhaerts
+  let response3 = await fetch("images/iphone_cover_candyhearts.svg");
+  let mySvgData3 = await response3.text();
+  document.querySelector("#coverCandyhartsSvg").innerHTML = mySvgData3;
 
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
   startColorManipulation();
@@ -97,6 +115,34 @@ function toggleOption(event) {
       features.phonegripButterfly = false;
       alert("You can only add one phonegrip at the time");
     }
+
+    //chek for only one cover
+    if (feature === "coverPowerpuff" && (features.coverCandyHaerts === true || features.coverBabygirl === true)) {
+      document.querySelector(`[data-feature="coverCandyHaerts"]`).classList.add("hide");
+      document.querySelector(`[data-feature="coverBabygirl"]`).classList.add("hide");
+      document.querySelector("#coverBabygirl").classList.remove("chosen");
+      features.coverBabygirl = false;
+      document.querySelector("#coverCandyHaerts").classList.remove("chosen");
+      features.coverCandyHaerts = false;
+      alert("You can only add one cover at the time");
+    } else if (feature === "coverCandyHaerts" && (features.coverPowerpuff === true || features.coverBabygirl === true)) {
+      document.querySelector(`[data-feature="coverPowerpuff"]`).classList.add("hide");
+      document.querySelector(`[data-feature="coverBabygirl"]`).classList.add("hide");
+      document.querySelector("#coverBabygirl").classList.remove("chosen");
+      features.coverBabygirl = false;
+      document.querySelector("#coverPowerpuff").classList.remove("chosen");
+      features.coverPowerpuff = false;
+      alert("You can only add one cover at the time");
+    } else if (feature === "coverBabygirl" && (features.coverPowerpuff === true || features.coverCandyHaerts)) {
+      document.querySelector(`[data-feature="coverPowerpuff"]`).classList.add("hide");
+      document.querySelector(`[data-feature="coverCandyHaerts"]`).classList.add("hide");
+      document.querySelector("#coverCandyHaerts").classList.remove("chosen");
+      features.coverCandyHaerts = false;
+      document.querySelector("#coverPowerpuff").classList.remove("chosen");
+      features.coverPowerpuff = false;
+      alert("You can only add one cover at the time");
+    }
+
     console.log(target);
 
     //Select target and add chosen class
