@@ -88,7 +88,7 @@ p {
   font-size: 1em;
 }
 
-/* BUTTON */
+/* BUTTONS */
 #start_btn_container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -132,16 +132,16 @@ p {
   transform-origin: center;
 }
 
-#splash {
-  margin-top: 50px;
-  position: relative;
-}
-
-#splashimg {
-  width: 80%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.reset_btn {
+  font-family: "cloister_blacklight";
+  background-color: #ffafce;
+  border: 5px solid white;
+  box-shadow: 3px 3px 8px black;
+  cursor: pointer;
+  color: white;
+  font-size: 2em;
+  height: 60px;
+  pointer-events: all;
 }
 
 /* CONFIGURATOR */
@@ -167,8 +167,7 @@ p {
 }
 
 #coverPowerpuffSvg,
-#coverBabygirlSvg,
-#coverCandyhartsSvg {
+#coverBabygirlSvg {
   position: absolute;
   width: 100%;
   height: auto;
@@ -178,8 +177,7 @@ p {
 }
 
 #coverPowerpuffSvg svg,
-#coverBabygirlSvg svg,
-#coverCandyhartsSvg svg {
+#coverBabygirlSvg svg {
   margin-top: 20px;
 }
 
@@ -200,6 +198,7 @@ p {
   padding-top: 20px;
   position: relative;
   pointer-events: none;
+  flex-wrap: wrap;
 }
 
 #product-preview img {
@@ -308,7 +307,6 @@ span {
 .textwave {
   --delay: 0s;
   animation: textwave 1.5s;
-  /*   animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); */
   animation-timing-function: cubic-bezier(0.17, 0.67, 0.85, 1.26);
   animation-delay: calc(var(--delay) * 0.1s);
   animation-fill-mode: both;

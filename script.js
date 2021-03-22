@@ -21,6 +21,12 @@ window.addEventListener("DOMContentLoaded", init);
 async function init() {
   console.log("It works 👍🏻");
 
+  document.querySelector("#reset").addEventListener("click", resetConfigurator);
+
+  // document.getElementById("reset").onclick = function () {
+  //   document.getElementById("iphone-basic").innerHTML = mySvgData;
+  // };
+
   //Fetch svg
   let response = await fetch("iphone_basic.svg");
   let mySvgData = await response.text();
@@ -32,7 +38,7 @@ async function init() {
   document.querySelector("#phonegripHaloSvg").innerHTML = mySvgData1; */
 
   //fetch powerpuff
-  let response1 = await fetch("test/iphone_cover_powerpuff-01.svg");
+  let response1 = await fetch("images/iphone_cover_powerpuff.svg");
   let mySvgData1 = await response1.text();
   document.querySelector("#coverPowerpuffSvg").innerHTML = mySvgData1;
 
@@ -41,10 +47,10 @@ async function init() {
   let mySvgData2 = await response2.text();
   document.querySelector("#coverBabygirlSvg").innerHTML = mySvgData2;
 
-  //fetch candyhaerts
+  /*   //fetch candyhaerts
   let response3 = await fetch("images/iphone_cover_candyhearts.svg");
   let mySvgData3 = await response3.text();
-  document.querySelector("#coverCandyhartsSvg").innerHTML = mySvgData3;
+  document.querySelector("#coverCandyhartsSvg").innerHTML = mySvgData3; */
 
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
   startColorManipulation();
@@ -156,4 +162,18 @@ function toggleOption(event) {
     //Add the hide class
     document.querySelector(`[data-feature="${feature}"]`).classList.add("hide");
   }
+}
+
+function resetConfigurator() {
+  document.querySelectorAll("#product-preview [data-feature]").forEach((each_previewFeature) => {
+    each_previewFeature.classList.add("hide");
+  });
+
+  document.querySelectorAll("#options [data-feature]").forEach((each_optionFeature) => {
+    each_optionFeature.classList.remove("chosen");
+  });
+
+  document.querySelectorAll(features[feature]).forEach((each_feature) => {
+    each_feature = false;
+  });
 }
