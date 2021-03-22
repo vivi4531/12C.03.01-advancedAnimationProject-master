@@ -26,37 +26,49 @@
         <h2 id="cooltext2" class="showText">Your own personal phone configurator</h2>
       </div>
 
-      <div id="splash">
-        <!-- <img id="splashimg" src="backgorund.png" alt="" /> -->
-
+      <!-- slideshow -->
+      <div id="frontpage-slideshow">
+        <img class="mySlides" src="slider/frontpage-background-covers.png" alt="" />
+        <img class="mySlides" src="slider/frontpage-background-phonegrips.png" alt="" />
+        <img class="mySlides" src="slider/frontpage-background-stickers.png" alt="" />
+      </div>
+      <div id="start_btn_container">
         <button class="start_btn"><a href="configuratorpage.html">Start here</a></button>
       </div>
     </section>
 
-    <div class="container">
-      <div id="slideshow">
-        <div id="slider">
-          <div id="mask">
-            <ul>
-              <li id="first" class="firstanimation">
-                <img src="backgorund.png" alt="" />
-              </li>
-
-              <li id="second" class="secondanimation">
-                <img src="frontpage-background-stickers.png" alt="" />
-              </li>
-
-              <li id="third" class="thirdanimation">
-                <img src="frontpage-background-phonegrips.png" alt="" />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer><p>© Amalie Grøn & Vivi Mortensen 2021</p></footer>
+    <footer>
+      <p>© Amalie Grøn & Vivi Mortensen 2021</p>
+      <br />
+      <p>Pictures from:</p>
+      <p>
+        <a href="https://www.3.dk/mobiler-tablets/mobiler/apple/iphone-12 ">www.3.dk</a>, <a href="https://www.sizescreens.com/apple-iphone-12-mini-screen-specifications/ ">www.sizescreens.com</a>,
+        <a href="https://www.uswitch.com">www.unswitch.com</a>, <a href="https://pinkprints.co.uk/ ">www.pinkprints.co.uk</a>, <a href="https://stickerbeans.com/product/summer-2020-tie-dye-collection/ ">www.stickerbeans.com</a>,
+        <a href="https://mystickermania.com/">www.mystickermania.com</a>
+      </p>
+    </footer>
     <!--     <script src="script.js"></script> -->
     <script src="testScript.js"></script>
+    <script>
+      "use strict";
+
+      let slideIndex = 0;
+
+      carousel();
+
+      function carousel() {
+        let i;
+        let x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {
+          slideIndex = 1;
+        }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 2500);
+      }
+    </script>
   </body>
 </html>
