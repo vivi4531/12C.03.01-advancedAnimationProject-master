@@ -9,6 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+      main {
+        overflow-x: hidden;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 175, 206, 1), rgba(175, 227, 255, 1), rgba(255, 175, 206, 1), rgba(255, 255, 255, 1));
+      }
+
+      .container {
+        width: 300vw;
+        height: 80vh;
+        display: flex;
+        flex-wrap: nowrap;
+        scroll-snap-align: center;
+        margin-top: 50px;
+      }
+
+      .panel img {
+        transform: translateX(32.5%);
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -20,7 +41,32 @@
       </nav>
     </header>
 
-    <h2>Your personal phone configurator</h2>
+    <main>
+      <h2>Your personal phone configurator</h2>
+
+      <section class="container">
+        <div class="panel">
+          <img src="scrollimages/scrollpage-1.png" alt="" />
+        </div>
+        <div class="panel">
+          <img src="scrollimages/scrollpage-2.png" alt="" />
+        </div>
+        <div class="panel">
+          <img src="scrollimages/scrollpage-3.png" alt="" />
+        </div>
+        <div class="panel">
+          <img src="scrollimages/scrollpage-4.png" alt="" />
+        </div>
+        <div class="panel">
+          <img src="scrollimages/scrollpage-5.png" alt="" />
+        </div>
+      </section>
+
+      <section id="scrollPhone"></section>
+      <section></section>
+      <section></section>
+      <section></section>
+    </main>
 
     <footer>
       <p>© Amalie Grøn & Vivi Mortensen 2021</p>
@@ -33,6 +79,28 @@
       </p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      let sections = gsap.utils.toArray(".panel");
+
+      gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".container",
+          pin: true,
+          scrub: 1,
+          snap: 1 / (sections.length - 1),
+          // base vertical scrolling on how wide the container is so it feels more natural.
+          end: () => "+=" + document.querySelector(".container").offsetWidth,
+        },
+      });
+    </script>
   </body>
 </html>

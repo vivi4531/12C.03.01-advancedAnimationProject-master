@@ -173,7 +173,19 @@ function resetConfigurator() {
     each_optionFeature.classList.remove("chosen");
   });
 
-  document.querySelectorAll(features[feature]).forEach((each_feature) => {
-    each_feature = false;
+  features.stickerDramaqueen = false;
+  features.stickerHeart = false;
+  features.stickerRainbow = false;
+  features.phonegripButterfly = false;
+  features.phonegripHeart = false;
+  features.phonegripHalo = false;
+  features.coverPowerpuff = false;
+  features.coverCandyHaerts = false;
+  features.coverBabygirl = false;
+
+  // elementToPaint.style.fill = "none";
+
+  document.querySelectorAll(".g_to_interact_with").forEach((eachG) => {
+    eachG.style.fill = "none";
   });
 }
