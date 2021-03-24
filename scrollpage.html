@@ -98,6 +98,44 @@
       .marquee div.active {
         opacity: 0;
       }
+
+      /* BUTTONS */
+      #scrollpage_btn_container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        margin-top: 5px;
+      }
+
+      .scrollpage_btn {
+        animation: scrollpuls 2s infinite;
+        font-family: "cloister_blacklight";
+        background-color: #ffafce;
+        border: 5px solid white;
+        box-shadow: 3px 3px 8px black;
+        cursor: pointer;
+        z-index: 6;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        justify-self: center;
+      }
+
+      .scrollpage_btn a {
+        text-decoration: none;
+        font-size: 3em;
+        color: white;
+      }
+
+      @keyframes scrollpuls {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
     </style>
   </head>
   <body>
@@ -161,6 +199,10 @@
         <img class="scrollItem" src="scrollimages/scrollpage-5.png" alt="" />
       </section>
     </main>
+
+    <div id="scrollpage_btn_container">
+      <button class="scrollpage_btn"><a href="configuratorpage.html">Pimp your phone here!</a></button>
+    </div>
 
     <footer>
       <p>© Amalie Grøn & Vivi Mortensen 2021</p>
