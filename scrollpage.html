@@ -9,25 +9,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-
     <style>
+      body {
+        scroll-behavior: smooth;
+      }
       main {
         overflow-x: hidden;
         background: rgb(255, 255, 255);
         background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 175, 206, 1), rgba(175, 227, 255, 1), rgba(255, 175, 206, 1), rgba(255, 255, 255, 1));
       }
 
-      .container {
-        width: 300vw;
-        height: 80vh;
-        display: flex;
-        flex-wrap: nowrap;
-        scroll-snap-align: center;
-        margin-top: 50px;
+      header {
+        position: fixed;
+        z-index: 100;
+        width: 100vw;
       }
 
-      .panel img {
-        transform: translateX(32.5%);
+      section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .scrollItem {
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 3s ease;
+      }
+      .scrollItem.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      section p {
+        font-size: 4vw;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+      }
+
+      section img {
+        width: 70%;
+      }
+
+      /*emoji*/
+      :root {
+        --duration: 300ms;
+        --ease: cubic-bezier(0.33, 1, 0.68, 1);
+      }
+
+      .marquee-container {
+        position: fixed;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-size: 2vw;
+        z-index: 1;
+      }
+      .marquee {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .marquee--left {
+        left: -1px;
+        bottom: -100px;
+        transform: rotate(-0.25turn);
+        transform-origin: 0 0;
+      }
+      .marquee--right {
+        left: calc(100% + 1px);
+        top: 0;
+        transform: rotate(0.25turn);
+        transform-origin: 0 0;
+      }
+
+      .marquee div {
+        opacity: 1;
+        transition: opacity var(--duration) var(--ease);
+      }
+      .marquee div.active {
+        opacity: 0;
       }
     </style>
   </head>
@@ -41,31 +110,56 @@
       </nav>
     </header>
 
-    <main>
-      <h2>Your personal phone configurator</h2>
+    <div class="marquee-container">
+      <div class="marquee marquee--right">
+        <div></div>
+      </div>
 
-      <section class="container">
-        <div class="panel">
-          <img src="scrollimages/scrollpage-1.png" alt="" />
-        </div>
-        <div class="panel">
-          <img src="scrollimages/scrollpage-2.png" alt="" />
-        </div>
-        <div class="panel">
-          <img src="scrollimages/scrollpage-3.png" alt="" />
-        </div>
-        <div class="panel">
-          <img src="scrollimages/scrollpage-4.png" alt="" />
-        </div>
-        <div class="panel">
-          <img src="scrollimages/scrollpage-5.png" alt="" />
-        </div>
+      <div class="marquee marquee--left">
+        <div></div>
+      </div>
+    </div>
+
+    <main class="page-content">
+      <section class="sectionDiv">
+        <p class="scrollItem">Here you can pimp your iPhone 12!</p>
       </section>
 
-      <section id="scrollPhone"></section>
-      <section></section>
-      <section></section>
-      <section></section>
+      <section class="sectionDiv">
+        <img class="scrollItem" src="scrollimages/scrollpage-1.png" alt="" />
+      </section>
+
+      <section class="sectionDiv">
+        <p class="scrollItem">Add a fancy cover!</p>
+      </section>
+
+      <section class="sectionDiv">
+        <img class="scrollItem" src="scrollimages/scrollpage-2.png" alt="" />
+      </section>
+
+      <section class="sectionDiv">
+        <p class="scrollItem">Choose your favorite phonegrip!</p>
+      </section>
+
+      <section class="sectionDiv">
+        <img class="scrollItem" src="scrollimages/scrollpage-3.png" alt="" />
+      </section>
+
+      <section class="sectionDiv">
+        <p class="scrollItem">And style with a sticker!</p>
+      </section>
+
+      <section class="sectionDiv">
+        <img class="scrollItem" src="scrollimages/scrollpage-4.png" alt="" />
+      </section>
+
+      <section class="sectionDiv">
+        <p class="scrollItem">Or many stickers!</p>
+      </section>
+
+      <section class="sectionDiv">
+        <img class="scrollItem" src="scrollimages/scrollpage-5.png" alt="" />
+      </section>
     </main>
 
     <footer>
@@ -79,27 +173,71 @@
       </p>
     </footer>
 
-    <!-- <script src="script.js"></script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
-
     <script>
+      "use strict";
+
       gsap.registerPlugin(ScrollTrigger);
 
-      let sections = gsap.utils.toArray(".panel");
+      const scrollItems = gsap.utils.toArray(".scrollItem");
 
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: ".container",
-          pin: true,
-          scrub: 1,
-          snap: 1 / (sections.length - 1),
-          // base vertical scrolling on how wide the container is so it feels more natural.
-          end: () => "+=" + document.querySelector(".container").offsetWidth,
-        },
+      scrollItems.forEach((scrollItem, i) => {
+        ScrollTrigger.create({
+          trigger: scrollItem,
+          toggleClass: "active",
+          // this toggles the class again when you scroll back up:
+          toggleActions: "play none none none",
+          // this removes the class when the scrolltrigger is passed:
+          // once: true,
+        });
+      });
+
+      //emoji fun
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion)");
+      const sections = document.querySelectorAll(".page-content__section");
+      const marquees = document.querySelectorAll(".marquee div");
+      let marqueeText = "";
+
+      const updateMarqueeText = () => {
+        [...marquees].forEach((marquee) => {
+          marquee.classList.add("active");
+          marquee.addEventListener("transitionend", () => {
+            marquee.classList.remove("active");
+            marquee.innerText = `💖🦄👠🦋🌸🔮🌈🍑💋💎🎀✨`.repeat(20);
+          });
+        });
+      };
+      const setActiveSection = (section) => {
+        updateMarqueeText();
+      };
+
+      if (!prefersReducedMotion.matches) {
+        gsap.to(".marquee div", {
+          scrollTrigger: {
+            trigger: ".page-content",
+            scrub: 0.25,
+            start: "top bottom",
+            end: "bottom top",
+            ease: "power2",
+          },
+          xPercent: -50,
+        });
+      }
+
+      gsap.utils.toArray(".page-content").forEach((heading) => {
+        ScrollTrigger.create({
+          trigger: heading,
+          start: "top center",
+          end: "bottom 200px",
+          toggleActions: "play reset play reset",
+          ease: "power2",
+          onEnter: () => marqueeText !== heading.textContent && setActiveSection(heading.parentElement),
+          onEnterBack: () => marqueeText !== heading.textContent && setActiveSection(heading.parentElement),
+        });
       });
     </script>
   </body>

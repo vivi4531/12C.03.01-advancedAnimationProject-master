@@ -25,7 +25,7 @@ img {
 }
 
 path {
-  stroke-width: 20;
+  stroke-width: 40;
 }
 
 /* FONT */
@@ -148,6 +148,7 @@ p {
 #configurator {
   display: flex;
   margin: 50px;
+  height: 700px;
 }
 
 #color-box,
@@ -157,11 +158,10 @@ p {
   box-shadow: 3px 3px 8px #ffafce;
   border-radius: 1em;
   overflow-y: scroll;
-  height: 600px;
+  height: 700px;
 }
 
 #iphone-basic,
-#phonegripHaloSvg,
 #coverPowerpuffSvg {
   width: 100%;
 }

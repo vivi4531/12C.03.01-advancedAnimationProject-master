@@ -75,7 +75,7 @@ function clickWantedColorArea() {
 }
 
 function mouseOverWantedColorArea() {
-  this.style.stroke = "black";
+  this.style.stroke = "#afe3ff";
 }
 
 function mouseOutWantedColorArea() {
@@ -182,8 +182,6 @@ function resetConfigurator() {
   features.coverPowerpuff = false;
   features.coverCandyHaerts = false;
   features.coverBabygirl = false;
-
-  // elementToPaint.style.fill = "none";
 
   document.querySelectorAll(".g_to_interact_with").forEach((eachG) => {
     eachG.style.fill = "none";
