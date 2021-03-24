@@ -22,6 +22,7 @@ function toggleMenu() {
 
     } else {
         document.querySelector("#menuknap").textContent = "x";
+        document.querySelector("#start_btn_container").style.display = "none"; 
     }
 
 }
