@@ -12,11 +12,17 @@
   </head>
   <body>
     <header>
-      <a href=""><h1>Pimp Your iPhone</h1></a>
+      <div id="menuknap">☰</div>
+        <div class="menu-container">
+          <div id="logo"><a href=""><h1>Pimp Your iPhone</h1></a></div>
+        </div>
+    </div>
       <nav>
-        <a href="index.html">Frontpage</a>
-        <a href="configuratorpage.html">Configuratorpage</a>
-        <a href="scrollpage.html">Scrollpage</a>
+        <ul id="menu" class="hidden">
+          <li><a href="index.html">Frontpage</a></li>
+          <li><a href="configuratorpage.html">Configuratorpage</a></li>
+          <li><a href="scrollpage.html">Scrollpage</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -47,10 +53,43 @@
         <a href="https://mystickermania.com/">www.mystickermania.com</a>
       </p>
     </footer>
-    <!--     <script src="script.js"></script> -->
-    <script src="testScript.js"></script>
+
+    <script src="burgermenu.js"></script>
     <script>
       "use strict";
+      //textwave
+      let splittetText;
+
+      window.addEventListener("load", init);
+
+      function init() {
+        console.log("init");
+        // get the text from somevhere
+        let text = document.querySelector("#cooltext");
+
+        //create array
+        splittetText = text.textContent.split("");
+        console.log(splittetText);
+
+        // clear the HTML area
+        text.textContent = "";
+
+        //add animation for each letter
+        splittetText.forEach((letter, index) => {
+          const textToAnimate = document.createElement("span");
+          textToAnimate.classList.add("textwave");
+          textToAnimate.style.setProperty("--delay", index);
+          if (letter === " ") {
+            textToAnimate.innerHTML = "&nbsp;";
+          } else {
+            textToAnimate.textContent = letter;
+          }
+
+          text.append(textToAnimate);
+        });
+      }
+
+      //gallery
 
       let slideIndex = 0;
 
