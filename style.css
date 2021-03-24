@@ -32,7 +32,8 @@ path {
 
 @font-face {
   font-family: "cloister_blacklight";
-  src: url("font/cloisterblacklight-axjg-webfont.woff2") format("woff2"), url("font/cloisterblacklight-axjg-webfont.woff") format("woff");
+  src: url("font/cloisterblacklight-axjg-webfont.woff2") format("woff2"),
+    url("font/cloisterblacklight-axjg-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
