@@ -10,6 +10,145 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <style>
+
+      /* MOBIL */
+      body {
+        scroll-behavior: smooth;
+      }
+      main {
+        overflow-x: hidden;
+        background: rgb(255, 255, 255);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 175, 206, 1), rgba(175, 227, 255, 1), rgba(255, 175, 206, 1), rgba(255, 255, 255, 1));
+      }
+
+      header {
+        position: fixed;
+        z-index: 100;
+        width: 100vw;
+      }
+
+      section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .scrollItem {
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 3s ease;
+      }
+      .scrollItem.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      section p {
+        font-size: 4vw;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+      }
+
+      section img {
+        width: 100%;
+      }
+
+      /*emoji*/
+      :root {
+        --duration: 300ms;
+        --ease: cubic-bezier(0.33, 1, 0.68, 1);
+      }
+
+      .marquee-container {
+        position: fixed;
+        pointer-events: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-size: 4.5vw;
+        z-index: 1;
+      }
+      .marquee {
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 10px;
+      }
+
+      .marquee--left {
+        left: -1px;
+        bottom: -100px;
+        transform: rotate(-0.25turn);
+        transform-origin: 0 0;
+      }
+      .marquee--right {
+        left: calc(100% + 1px);
+        top: 0;
+        transform: rotate(0.25turn);
+        transform-origin: 0 0;
+      }
+
+      .marquee div {
+        opacity: 1;
+        transition: opacity var(--duration) var(--ease);
+      }
+      .marquee div.active {
+        opacity: 0;
+      }
+
+      /* BUTTONS */
+      #scrollpage_btn_container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        margin-top: -100px;
+      }
+
+      .scrollpage_btn {
+        animation: scrollpuls 2s infinite;
+        font-family: "cloister_blacklight";
+        background-color: #ffafce;
+        border: 5px solid white;
+        box-shadow: 3px 3px 8px black;
+        cursor: pointer;
+        z-index: 6;
+        grid-row: 2/3;
+        grid-column: 2/3;
+        justify-self: center;
+      }
+
+      .scrollpage_btn a {
+        text-decoration: none;
+        font-size: 2em;
+        color: white;
+      }
+
+      @keyframes scrollpuls {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+
+      }
+
+      #menuknap{
+        margin-right: 30px;
+      }
+
+
+
+
+/* DESKTOP */
+      @media (min-width: 600px) {
       body {
         scroll-behavior: smooth;
       }
@@ -135,14 +274,14 @@
         100% {
           transform: scale(1);
         }
-      }
+      }}
     </style>
   </head>
   <body>
     <header>
       <div id="menuknap">☰</div>
         <div class="menu-container">
-          <div id="logo"><a href=""><h1>Pimp Your iPhone</h1></a></div>
+          <div id="logo"><a href="index.html"><h1>Pimp Your iPhone</h1></a></div>
         </div>
     </div>
       <nav>
@@ -207,7 +346,7 @@
     </main>
 
     <div id="scrollpage_btn_container">
-      <button class="scrollpage_btn"><a href="configuratorpage.html">Pimp your phone here!</a></button>
+      <button class="scrollpage_btn"><a href="configuratorpage.html">Pimp your phone!</a></button>
     </div>
 
     <footer>
@@ -215,8 +354,16 @@
       <br />
       <p>Pictures from:</p>
       <p>
-        <a href="https://www.3.dk/mobiler-tablets/mobiler/apple/iphone-12 ">www.3.dk</a>, <a href="https://www.sizescreens.com/apple-iphone-12-mini-screen-specifications/ ">www.sizescreens.com</a>,
-        <a href="https://www.uswitch.com">www.unswitch.com</a>, <a href="https://pinkprints.co.uk/ ">www.pinkprints.co.uk</a>, <a href="https://stickerbeans.com/product/summer-2020-tie-dye-collection/ ">www.stickerbeans.com</a>,
+        <a href="https://www.3.dk/mobiler-tablets/mobiler/apple/iphone-12 ">www.3.dk</a>
+        <br />
+        <a href="https://www.sizescreens.com/apple-iphone-12-mini-screen-specifications/ ">www.sizescreens.com</a>
+        <br />
+        <a href="https://www.uswitch.com">www.unswitch.com</a>
+        <br />
+        <a href="https://pinkprints.co.uk/ ">www.pinkprints.co.uk</a>
+        <br />
+        <a href="https://stickerbeans.com/product/summer-2020-tie-dye-collection/ ">www.stickerbeans.com</a>
+        <br />
         <a href="https://mystickermania.com/">www.mystickermania.com</a>
       </p>
     </footer>
