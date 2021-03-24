@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>12C.03.01-advancedAnimationProject</title>
+    <title>Pimp Your iPhone - Configuratorpage</title>
     <!-- Link to Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
@@ -33,7 +33,7 @@
       <!-- Color selector -->
       <div id="color-box">
         <h3>Available colors</h3>
-        <!-- <div id="color_btns"> -->
+        <div id="color_btns">
         <svg id="color_btns" viewBox="0 0 1100 4500">
           <rect class="color_btn" x="350" y="0" width="400" height="400" fill="#f2d49b" />
           <rect class="color_btn" x="350" y="500" width="400" height="400" fill="#f26671" />
@@ -45,7 +45,7 @@
           <rect class="color_btn" x="350" y="3500" width="400" height="400" fill="#a7d9aa" />
           <rect class="color_btn" x="350" y="4000" width="400" height="400" fill="#ffc394" />
         </svg>
-        <!-- </div> -->
+        </div>
       </div>
 
       <!-- Product preview-->
@@ -73,20 +73,22 @@
           <div id="coverBabygirlSvg" alt=""></div>
         </div>
 
-        <!--      <div class="hide" data-feature="coverCandyHaerts">
+             <div class="hide" data-feature="coverCandyHaerts">
           <img id="candyhaerts_png" src="images/iphone_cover_candyhearts.png" alt="" />
           <div id="coverCandyhartsSvg" alt=""></div>
-        </div> -->
+        </div>
 
         <button id="reset" class="reset_btn">Reset</button>
       </div>
 
       <!-- Feature list - items that can be added to iPhone -->
-
+      <h3>Available features</h3> 
       <div id="options">
-        <h3>Available features</h3>
+        
         <!-- Stickers -->
         <h4>Stickers</h4>
+        <div class="option-flex">
+          
         <figure class="option" data-feature="stickerDramaqueen">
           <img src="images/feature_sticker_dramaqueen.png" alt="dramaqueen" />
           <figcaption>Dramaqueen</figcaption>
@@ -99,9 +101,10 @@
           <img src="images/feature_sticker_rainbow.png" alt="rainbow" />
           <figcaption>Rainbow</figcaption>
         </figure>
-
+      </div> 
         <!-- Phonegrips -->
         <h4>Phonegrips</h4>
+        <div class="option-flex">
         <figure id="phonegripButterfly" class="option" data-feature="phonegripButterfly">
           <img src="images/feature_phonegrip_butterfly.png" alt="phonegripbutterfly" />
           <figcaption>Butterfly</figcaption>
@@ -114,9 +117,10 @@
           <img src="images/feature_phonegrip_halo.png" alt="phonegriphalo" />
           <figcaption>Halo</figcaption>
         </figure>
-
+      </div> 
         <!-- Phonegrips -->
         <h4>Covers</h4>
+        <div class="option-flex">
         <figure id="coverPowerpuff" class="option" data-feature="coverPowerpuff">
           <img src="images/feature_cover_powerpuff.png" alt="coverPowerpuff" />
           <figcaption>Powerpuff Cover</figcaption>
@@ -132,7 +136,8 @@
           <figcaption>Babygirl Cover</figcaption>
         </figure>
       </div>
-    </div>
+      </div>
+    </div> 
 
     <footer>
       <p>© Amalie Grøn & Vivi Mortensen 2021</p>

@@ -215,23 +215,34 @@ p {
   font-size: 2em;
   height: 60px;
   pointer-events: all;
+  margin-bottom: 30px;
 }
 
 /* CONFIGURATOR */
 #configurator {
   display: flex;
+  flex-wrap: nowrap;
   margin: 50px;
   height: 700px;
+  flex-direction: column;
 }
 
-#color-box,
+#color-box {
+  box-shadow: 3px 3px 8px #ffafce;
+  border-radius: 1em;
+  margin-bottom: 50px;
+}
+
 #options {
-  flex-grow: 1;
-  flex-basis: 300px;
+  /* flex-grow: 1;
+  flex-basis: 300px; */
   box-shadow: 3px 3px 8px #ffafce;
   border-radius: 1em;
   overflow-y: scroll;
-  height: 700px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #iphone-basic,
@@ -261,17 +272,23 @@ p {
 }
 
 #product-preview {
-  flex-grow: 2;
-  flex-basis: 1000px;
+  /* flex-grow: 2;
+  flex-basis: 1000px; */
   box-shadow: 3px 3px 8px #ffafce;
   border-radius: 1em;
-  margin: 0 50px;
+  /* margin: 0 50px; */
   display: flex;
   justify-content: center;
   padding-top: 20px;
   position: relative;
   pointer-events: none;
   flex-wrap: wrap;
+  /* width: 100vw; */
+  margin-bottom: 50px;
+}
+
+#iphone-basic {
+  margin-bottom: 50px;
 }
 
 #product-preview img {
@@ -317,6 +334,16 @@ p {
 
 .color_btn {
   cursor: pointer;
+}
+
+#color_btns {
+  overflow-y: scroll;
+  height: 20vh;
+}
+
+.option-flex {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 /* HEADER + NAVIGATION */
@@ -658,6 +685,11 @@ span {
 
   .color_btn {
     cursor: pointer;
+  }
+
+  .option-flex {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   /* HEADER + NAVIGATION */
