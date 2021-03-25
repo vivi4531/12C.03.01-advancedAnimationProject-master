@@ -703,7 +703,9 @@ span {
   }
 
   header #logo h1 {
-    font-size: 5em;
+    font-size: 4em;
+    text-align: left;
+    margin-left: 10px;
   }
 
   header a {
@@ -734,22 +736,26 @@ span {
   }
 
   #menuknap {
-    display: none;
+    font-size: 4em;
   }
 
-  #menu li {
+  /* #menu li {
     display: inline-block;
-  }
+  } */
 
+  /* .menu-container {
+    display: flex;
+    justify-content: center;
+  } */
   nav li,
   nav ul {
-    background-color: transparent;
+    background-color: #afe3ff;
   }
 
-  .hidden {
+  /* .hidden {
     opacity: 1;
     transform: translateX(0);
-  }
+  } */
 
   /* FOOTER */
   footer {
