@@ -87,7 +87,7 @@ function mouseOutWantedColorArea() {
 
 function clickWantedColor() {
   if (elementToPaint != undefined) {
-    elementToPaint.style.fill = this.getAttribute("fill");
+    elementToPaint.style.fill = this.getAttribute("data-feature");
   }
 }
 
