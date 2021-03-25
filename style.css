@@ -154,8 +154,12 @@ p {
   box-shadow: 3px 3px 8px #ffafce;
   border-radius: 1em;
   overflow-y: scroll;
-  height: 200px;
+  height: 250px;
 }
+#options {
+  height: 350px;
+}
+
 #iphone-basic {
   height: 250px;
 }
@@ -241,7 +245,12 @@ p {
 }
 
 .color_btn {
+  width: 75px;
+  height: 75px;
+  margin-bottom: 20px;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* HEADER + NAVIGATION */
